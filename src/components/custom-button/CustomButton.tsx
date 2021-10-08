@@ -1,6 +1,6 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler } from "react";
 
-import './CustomButton.scss';
+import "./CustomButton.scss";
 
 export default function CustomButton({
   children,
@@ -9,13 +9,13 @@ export default function CustomButton({
   ...otherProps
 }: {
   children: string;
-  type?: 'button' | 'submit' | 'reset' | undefined;
+  type?: "button" | "submit" | "reset" | undefined;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   isGoogleSignIn?: boolean;
 }) {
   return (
     <button
-      className={`${isGoogleSignIn ? 'google-sign-in' : null} custom-button `}
+      className={`${isGoogleSignIn ? "google-sign-in" : null} custom-button `}
       {...otherProps}
       onClick={onClick}
     >

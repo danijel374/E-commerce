@@ -1,14 +1,20 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-
-import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { auth } from "../../firebase/firebase.utils";
 
 import "./Header.scss";
 
-import { auth } from "../../firebase/firebase.utils";
+import CartDropdown from "../cart-dropdown/CartDropdown";
+import { ReactComponent as Logo } from "../../assets/crown.svg";
+import CartIcon from "../cart-icon/CartIcon";
 
-function Header({ currentUser }: { currentUser: any }) {
+function Header({
+  currentUser,
+  hidden,
+}: {
+  currentUser: any;
+  hidden: boolean;
+}) {
   console.log("Header props", currentUser);
   return (
     <header className="header">
@@ -35,13 +41,22 @@ function Header({ currentUser }: { currentUser: any }) {
             SIGN IN
           </NavLink>
         )}
+        <CartIcon />
       </div>
+      {hidden ? null : <CartDropdown />}
     </header>
   );
 }
 
-const mapStateToProps = (state: any) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({
+  user: { currentUser },
+  cart: { hidden },
+}: {
+  user: any;
+  cart: { hidden: any };
+}) => ({
+  currentUser,
+  hidden,
 });
 
 export default connect(mapStateToProps)(Header);
