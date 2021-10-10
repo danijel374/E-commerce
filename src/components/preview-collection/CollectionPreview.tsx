@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import './CollectionPreview.scss';
+import "./CollectionPreview.scss";
 
-import CollectionItem from '../collection-item/CollectionItem';
+import CollectionItem from "../collection-item/CollectionItem";
 
 export default function CollectionPreview({
   title,
@@ -12,14 +12,14 @@ export default function CollectionPreview({
   items: { name: string; id: number }[];
 }) {
   return (
-    <div className='collection-preview'>
+    <div className="collection-preview">
       <h1>{title.toUpperCase()}</h1>
-      <div className='preview'>
+      <div className="preview">
         {items
           .filter((item, idx) => idx < 4)
-          .map(({ id, ...otherItemProps }) => (
-            <CollectionItem key={id} {...otherItemProps} />
-          ))}
+          .map((item) => {
+            return <CollectionItem key={item.id} item={item} />;
+          })}
       </div>
     </div>
   );

@@ -2,9 +2,9 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import {
   getFirestore,
-  collection,
+  // collection,
   doc,
-  getDoc,
+  // getDoc,
   getDocFromServer,
   setDoc,
 } from "firebase/firestore";
