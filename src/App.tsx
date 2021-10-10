@@ -28,8 +28,6 @@ interface MyProps {
 class App extends React.Component<MyProps, {}> {
   unsubscribeFromAuth = () => {};
   componentDidMount() {
-    console.log(this.props);
-
     console.log("App this.props", this.props);
     const { setCurrentUser } = this.props;
     console.log("app.props.setCurrentUser", setCurrentUser);
@@ -58,7 +56,7 @@ class App extends React.Component<MyProps, {}> {
         // User is signed out
         // userAuth = null
         setCurrentUser(userAuth);
-        console.log("we out", userAuth);
+        console.log("we out or startup", userAuth);
       }
     });
   }

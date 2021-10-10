@@ -14,7 +14,7 @@ const CartIcon = ({ toggleCartHidden }: { toggleCartHidden: () => void }) => (
 
 const mapDispatchToProps = (dispatch: any) => {
   console.log(
-    "this is dispatch = dispatch(toggleCartHidden())",
+    "this is action = dispatch(toggleCartHidden())",
     dispatch(toggleCartHidden())
   );
   return {

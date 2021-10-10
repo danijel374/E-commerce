@@ -2,7 +2,8 @@ import { CartActionTypes } from "./cart.types";
 import { addItemToCart } from "./cart.utils";
 
 const INITIAL_STATE = {
-  hidden: true,
+  hidden: false,
+  // false because TOGGLE_CARD_HIDDEN runs as the app starts and changes to true might look into it after
   cartItems: [],
 };
 
