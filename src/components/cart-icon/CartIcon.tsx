@@ -1,16 +1,27 @@
 import "./CartIcon.scss";
 
 import { connect } from "react-redux";
+
+import { selectCartItemsCount } from "../../redux/cart/cart.selectors";
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
 
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 
-const CartIcon = ({ toggleCartHidden }: { toggleCartHidden: () => void }) => (
-  <div className="cart-icon" onClick={toggleCartHidden}>
-    <ShoppingIcon className="shopping-icon" />
-    <span className="item-count">0</span>
-  </div>
-);
+const CartIcon = ({
+  toggleCartHidden,
+  itemCount,
+}: {
+  toggleCartHidden: () => void;
+  itemCount: number;
+}) => {
+  console.log("DIDID I RENDER AGAINSDIASNDS!!!!!!!!!");
+  return (
+    <div className="cart-icon" onClick={toggleCartHidden}>
+      <ShoppingIcon className="shopping-icon" />
+      <span className="item-count">{itemCount}</span>
+    </div>
+  );
+};
 
 const mapDispatchToProps = (dispatch: any) => {
   console.log(
@@ -22,4 +33,11 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(CartIcon);
+const mapStateToProps = (state: any) => {
+  console.log("I am being called ");
+  return {
+    itemCount: selectCartItemsCount(state),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartIcon);

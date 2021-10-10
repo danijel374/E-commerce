@@ -37,6 +37,7 @@ class App extends React.Component<MyProps, {}> {
         setCurrentUser(userAuth);
 
         const userDocSnap = await getDoc(userDocRef);
+
         setCurrentUser({
           id: userDocSnap.id,
           ...userDocSnap.data(),
