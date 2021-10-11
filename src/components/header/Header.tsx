@@ -1,12 +1,15 @@
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { auth } from "../../firebase/firebase.utils";
+import { createStructuredSelector } from "reselect";
 
 import "./Header.scss";
 
 import CartDropdown from "../cart-dropdown/CartDropdown";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import CartIcon from "../cart-icon/CartIcon";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selector";
 
 function Header({
   currentUser,
@@ -48,15 +51,14 @@ function Header({
   );
 }
 
-const mapStateToProps = ({
-  user: { currentUser },
-  cart: { hidden },
-}: {
-  user: any;
-  cart: { hidden: any };
-}) => ({
-  currentUser,
-  hidden,
+// const mapStateToProps = (state: any) => ({
+//   currentUser: selectCurrentUser(state),
+//   hidden: selectCartHidden(state),
+// });
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProps)(Header);
