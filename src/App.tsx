@@ -12,11 +12,11 @@ import { selectCurrentUser } from "./redux/user/user.selector";
 
 import "./App.scss";
 
-import HomePage from "./pages/homepage/Homepage";
+import HomePage from "./pages/homepage/HomePage";
 import ShopPage from "./pages/shop/ShopPage";
 import Header from "./components/header/Header";
 import SingInAndSingUp from "./pages/sign-in-and-sing-up/SingInAndSingUp";
-import Checkout from "./pages/checkout/Checkout";
+import CheckoutPage from "./pages/checkout/CheckoutPage";
 
 const auth = getAuth();
 
@@ -77,7 +77,7 @@ class App extends React.Component<MyProps, {}> {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             exact
             path="/signin"
