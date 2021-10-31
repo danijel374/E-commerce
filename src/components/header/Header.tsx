@@ -18,7 +18,9 @@ function Header({
   currentUser: any;
   hidden: boolean;
 }) {
-  console.log("Header props", currentUser);
+  if (process.env.NODE_ENV === "development") {
+    console.log("Header props", currentUser);
+  }
   return (
     <header className="header">
       <NavLink to="/">
