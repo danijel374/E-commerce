@@ -14,7 +14,6 @@ const CollectionPage = ({
   match: { params: { collectionId: string } };
   collection: any;
 }) => {
-  console.log(collection, "aaaaaaaaaaaaaa");
   const { title, items } = collection;
   return (
     <div className="collection-page">
@@ -29,8 +28,6 @@ const CollectionPage = ({
 };
 
 const mapStateToProps = (state: any, ownProps: any) => {
-  console.log("OWNR PROPSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-  console.log(ownProps.match.params.collectionId);
   return {
     collection: selectCollection(ownProps.match.params.collectionId)(state),
   };

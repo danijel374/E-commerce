@@ -15,7 +15,6 @@ const CartIcon = ({
   toggleCartHidden: () => void;
   itemCount: number;
 }) => {
-  console.log("DIDID I RENDER AGAINSDIASNDS!!!!!!!!!");
   return (
     <div className="cart-icon" onClick={toggleCartHidden}>
       <ShoppingIcon className="shopping-icon" />
@@ -25,10 +24,6 @@ const CartIcon = ({
 };
 
 const mapDispatchToProps = (dispatch: any) => {
-  console.log(
-    "this is action = dispatch(toggleCartHidden())",
-    dispatch(toggleCartHidden())
-  );
   return {
     toggleCartHidden: () => dispatch(toggleCartHidden()),
   };

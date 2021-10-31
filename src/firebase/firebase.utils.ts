@@ -77,7 +77,6 @@ export const signInWithGoogle = () => {
   //  In v8, 'auth.signInWithPopup(provider)' was called. In v9, 'signInWithPopup' is no longer namespaced, so 'auth' has to be passed as a parameter.
   signInWithPopup(auth, provider)
     .then((result) => {
-      console.log(result.user, "RESULT::!");
       history.push("/");
       window.location.reload();
     })
@@ -91,11 +90,14 @@ export const signInWithGoogle = () => {
       // The AuthCredential type that was used
       const credential = GoogleAuthProvider.credentialFromError(error);
       // Do whatever to handle error
-      console.log({
-        errorCode,
-        errorMessage,
-        email,
-        credential,
-      });
+      console.error(
+        {
+          errorCode,
+          errorMessage,
+          email,
+          credential,
+        },
+        "MYERROR"
+      );
     });
 };

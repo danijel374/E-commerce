@@ -2,13 +2,13 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { createUserProfileDocument } from "./firebase/firebase.utils";
 import { getDoc } from "@firebase/firestore";
 import { createStructuredSelector } from "reselect";
-
 import { connect } from "react-redux";
+
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector";
+import { createUserProfileDocument } from "./firebase/firebase.utils";
 
 import "./App.scss";
 
@@ -31,9 +31,7 @@ interface MyProps {
 class App extends React.Component<MyProps, {}> {
   unsubscribeFromAuth = () => {};
   componentDidMount() {
-    console.log("App this.props", this.props);
     const { setCurrentUser } = this.props;
-    console.log("app.props.setCurrentUser", setCurrentUser);
     this.unsubscribeFromAuth = onAuthStateChanged(auth, async (userAuth) => {
       if (userAuth) {
         const userDocRef = await createUserProfileDocument(userAuth);
@@ -46,7 +44,6 @@ class App extends React.Component<MyProps, {}> {
           ...userDocSnap.data(),
         });
 
-        console.log(`This is userAuth `, userAuth);
         // this.setState(
         //   {
         //     currentUser: {
@@ -60,7 +57,6 @@ class App extends React.Component<MyProps, {}> {
         // User is signed out
         // userAuth = null
         setCurrentUser(userAuth);
-        console.log("we out or startup", userAuth);
       }
     });
   }
