@@ -1,6 +1,6 @@
 import React from "react";
 import "./CheckoutItem.scss";
-
+console.log("test wsl");
 import { connect } from "react-redux";
 
 import {
