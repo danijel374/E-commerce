@@ -11,7 +11,7 @@ import { selectCartItems } from "../../redux/cart/cart.selectors";
 
 import CustomButton from "../custom-button/CustomButton";
 import CartItem from "../cart-item/CartItem";
-
+console.log("test");
 function CartDropdown({
   cartItems,
   history,
