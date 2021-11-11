@@ -31,7 +31,7 @@ interface MyProps {
 class App extends React.Component<MyProps, {}> {
   unsubscribeFromAuth = () => {};
   componentDidMount() {
-    console.log("no user test wsl");
+    console.log("now works ssh setup ok?");
     const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = onAuthStateChanged(auth, async (userAuth) => {
       if (userAuth) {
