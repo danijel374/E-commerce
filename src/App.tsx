@@ -31,6 +31,7 @@ interface MyProps {
 class App extends React.Component<MyProps, {}> {
   unsubscribeFromAuth = () => {};
   componentDidMount() {
+    console.log("no user test wsl");
     const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = onAuthStateChanged(auth, async (userAuth) => {
       if (userAuth) {
