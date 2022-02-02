@@ -21,6 +21,7 @@ import CheckoutPage from "./pages/checkout/CheckoutPage";
 const auth = getAuth();
 
 // type setCurrentUser = {};
+// test
 
 interface MyProps {
   children: JSX.Element | JSX.Element[];
