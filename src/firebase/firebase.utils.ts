@@ -12,6 +12,7 @@ import {
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const config = {
   apiKey: "AIzaSyAKWfvWPTElx7JXAWmxh4B8xKUO3g3Gu7c",
   authDomain: "e-commerce-c57c8.firebaseapp.com",
@@ -21,7 +22,6 @@ const config = {
   appId: "1:401909970062:web:bffedfb447613e902145df",
   measurementId: "G-L0KLQCVNEV",
 };
-
 // Initialise Firebase app
 initializeApp(config);
 
@@ -30,6 +30,7 @@ export const auth = getAuth();
 // Get Firestore Database
 // NOTE: in Firestore docs, you'll often see the variable 'db' used instead of 'firestore'.
 export const db = getFirestore();
+console.log(auth, db, "this is auth and db");
 
 export const createUserProfileDocument = async (
   userAuth: any,
